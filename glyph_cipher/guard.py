@@ -35,7 +35,7 @@ def audit(text: str) -> dict:
         "mixed_script_words": [],
         "homoglyph_suspects": [],
     }
-    for w in re.findall(r"\S+", text):
+    for w in re.findall(r"\w+", text, re.UNICODE):
         if CYR.search(w) and LAT.search(w):
             findings["mixed_script_words"].append(w)
     # гомоглифы: визуальные двойники кириллица<->латиница
