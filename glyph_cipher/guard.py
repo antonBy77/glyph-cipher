@@ -20,7 +20,8 @@ import unicodedata
 ZERO_WIDTH = "\u200b\u200c\u200d\u2060\ufeff"
 TAG_RANGE = range(0xE0000, 0xE0080)          # ASCII smuggling
 BIDI = "\u202a\u202b\u202c\u202d\u202e\u2066\u2067\u2068\u2069"
-FORMAT_CH = re.compile(r"[\u00ad\u180e\u2061\u2062\u2063\ufe00-\ufe0f]")  # soft-hyphen, inj, VS
+FORMAT_CH = re.compile(r"[\u00ad\u180e\u2061\u2062\u2063]")  # soft-hyphen, invisible operators
+# U+FE00-FE0F (variation selectors, emoji-модификаторы) — whitelist: массовый легитимный шум
 
 CYR = re.compile(r"[А-Яа-яЁё]")
 LAT = re.compile(r"[A-Za-z]")
